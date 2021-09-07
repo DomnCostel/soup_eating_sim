@@ -1,5 +1,6 @@
 from time import sleep
 import os
+from pygame import mixer
 
 #ingridients
 soup = """
@@ -32,6 +33,9 @@ hotel = "trivago"
 #actions
 def eatsoup():
     global soupeaten
+    print("You ate the soup.")
+    mixer.Channel(1).play(mixer.Sound('soup eating.wav'))
+    sleep(3)
     soupeaten = True
 def addsalt():
     try:
@@ -40,6 +44,8 @@ def addsalt():
         global toomuchsalt
         howmuch = int(input("How much shakes?\n"))
         print("You added " + str(howmuch) + " salt shakes.")
+        mixer.Channel(1).play(mixer.Sound('salt shake.wav'))
+        sleep(5)
         saltiness += howmuch
         if saltiness > 9:
             souppoisoned = False
@@ -56,6 +62,7 @@ soupyanswers = {
 }
 #endings
 def deathbypoison():
+    mixer.Channel(1).play(mixer.Sound('dying.wav'))
     print("U were dumb, the soup was poisoned, like all soup is, so u ded now")
     print("You ascend into the Eternal Sea, and there you meet Crab God and become a crab and rave.")
     print("ENDING 1/?: POISON DEATH")
@@ -63,6 +70,7 @@ def saltylife():
     print("The soup was poisoned, like all soup is. HOWEVER, the magik power of salt neutralized poison, so u still alive.")
     print("ENDING 2/?: STILL ALIVE (and salty)")
 def toosalty():
+    mixer.Channel(1).play(mixer.Sound('dying.wav'))
     print("You added too much salt. The original poison was neutralized, but you died of dehydration/sodium poisoning/whatever")
     res = [sub for sub in nicenumbers if sub in str(saltiness)]
     if res:
@@ -70,6 +78,9 @@ def toosalty():
     print("You ascend into the Eternal Sea, and there you meet Crab God and become a crab and rave.")
     print("ENDING 3/?: TOO SALTY")
 #game
+mixer.init()
+mixer.music.load('soundtrack.wav')
+mixer.music.play(-1)
 print("You find yourself surrounded by invisible walls, in a dark void™. You are sitting on a chair, a bowl of soup on the \ntable in front of you.")
 print(soup)
 print("Next to it is a salt shaker.")
