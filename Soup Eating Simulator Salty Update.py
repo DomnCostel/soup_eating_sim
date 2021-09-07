@@ -91,4 +91,4 @@ if soupeaten:
         toosalty()
     else:
         saltylife()
-sleep(3)
+sleep(10)
