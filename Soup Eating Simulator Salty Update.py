@@ -22,11 +22,12 @@ _________________
        .  .  ..
       . . .   . .
 """
-#vars
+#vars and lists
 soupeaten = False
 souppoisoned = True
 toomuchsalt = False
 saltiness = 0
+nicenumbers = ["69", "420"]
 hotel = "trivago"
 #actions
 def eatsoup():
@@ -63,6 +64,9 @@ def saltylife():
     print("ENDING 2/?: STILL ALIVE (and salty)")
 def toosalty():
     print("You added too much salt. The original poison was neutralized, but you died of dehydration/sodium poisoning/whatever")
+    res = [sub for sub in nicenumbers if sub in str(saltiness)]
+    if res:
+        print("nice salt amount btw")
     print("You ascend into the Eternal Sea, and there you meet Crab God and become a crab and rave.")
     print("ENDING 3/?: TOO SALTY")
 #game
