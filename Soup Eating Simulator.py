@@ -80,16 +80,16 @@ _________________________________________________________
 |   \‾‾‾‾‾‾‾/  |        |  |‾‾‾‾‾‾‾‾|                    |
 |    |  S   |  |       |   | S      |                    |
 |    |      |  |      |    | /‾\/‾\ |                    |
-|    \_____/               |/      \|		        	 |
-|      | |                 ‾‾|‾‾‾|‾‾‾‾   	             |
-|      | |                   |   |			             |
-|                           			                 |
-|  5oupman likes         5alt 3an makes it        	     |
-|   to soup                   salty 		             |
-|                             				             |
+|    \_____/               |/      \|			 |
+|      | |                 ‾‾|‾‾‾|‾‾‾‾   	         |
+|      | |                   |   |			 |
+|                           			         |
+|  5oupman likes         5alt 3an makes it        	 |
+|   to soup                   salty 		         |
+|                             				 |
 |             Summon them today                          |
-|               Dont get poisoned!               	     |
-|                             				             |
+|               Dont get poisoned!               	 |
+|                             				 |
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 """
 soupman = """
@@ -117,6 +117,37 @@ saltman = """
      |/      \|
      ‾‾|‾‾‾|‾‾‾‾
        |   |
+"""
+logo = """
+        _________________________________________________________________
+        |  ____   ___  _   _ ____    _____    _  _____ ___ _   _  ____  |
+        | / ___| / _ \| | | |  _ \  | ____|  / \|_   _|_ _| \ | |/ ___| |
+        | \___ \| | | | | | | |_) | |  _|   / _ \ | |  | ||  \| | |  _  |
+        |  ___) | |_| | |_| |  __/  | |___ / ___ \| |  | || |\  | |_| | |
+        | |____/ \___/ \___/|_|     |_____/_/   \_\_| |___|_| \_|\____| |
+        |                                                               |
+        |       ____ ___ __  __ _   _ _        _  _____ ___  ____       |
+        |      / ___|_ _|  \/  | | | | |      / \|_   _/ _ \|  _ \      |
+        |      \___ \| || |\/| | | | | |     / _ \ | || | | | |_) |     |
+        |       ___) | || |  | | |_| | |___ / ___ \| || |_| |  _ <      |
+        |      |____/___|_|  |_|\___/|_____/_/   \_\_| \___/|_| \_\     |
+        |                                                               |
+        ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                                       ____
+                                       |  |
+                                       |  |
+                                       |  |
+     _____                             |  |                            ____
+    ( . . )                            |  |                           ( ' ' )
+     ( / )                             |  |                            ( ~ )     |
+___   ‾|‾‾  __                         |  |                       __    ‾|‾‾ ____|
+   \‾‾‾‾‾‾‾/  | \                     _|__|_                   / |  |‾‾‾‾‾‾‾‾|
+    |  S   |  |  \                   (      )                 / |   | S      |
+    |      |  |   \                 (        )               / |    | /‾\/‾\ |
+    \_____/        \                (        )              /       |/      \|
+      | |           \                (      )              /        ‾‾|‾‾‾|‾‾‾‾
+      | |            \                (    )              /           |   |
+                     ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 """
 #vars and lists
 SpoonUpgrade = False
@@ -162,6 +193,8 @@ def addsalt():
             stir = input(">")
             if stir == "stir":
                 print("You stirred the soup.")
+                mixer.Channel(1).play(mixer.Sound('stir.wav'))
+                sleep(6)
             else:
                 print("idiot just stir it")
         saltiness += howmuch
@@ -202,11 +235,6 @@ def addsalt():
             if GotEnd4:
                 if saltiness == 53:
                     if SpoonUpgrade:
-                        mixer.music.stop()
-                        mixer.music.unload()
-                        mixer.music.load("Salty Soup.wav")
-                        mixer.music.play(-1)
-                        print("The powers of Saltman and Soupman have broken you out of the Loop of Soup!")
                         breakout = True
     except:
         print("i asked for a number dumbass")
@@ -479,6 +507,7 @@ def mainmenu():
     global saltiness
     global souppoisoned
     global toomuchsalt
+    global logo
     clear()
     try:
         mixer.init()
@@ -489,10 +518,9 @@ def mainmenu():
         mixer.music.unload()
     except:
         pass
-    mixer.music.load("normal days.wav")
+    mixer.music.load("You can rest here, soupy traveler.wav")
     mixer.music.play(-1)
-    print("SOUP EATING SIMULATOR")
-    print("title screen not yet implemented")
+    print(logo)
     command = 0
     while True:
         print("What would you like to do? Commands: start game, view endings, exit")
