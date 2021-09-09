@@ -508,6 +508,11 @@ def mainmenu():
     global souppoisoned
     global toomuchsalt
     global logo
+    soupiness = 0
+    saltiness = 0
+    breakout = False
+    toosalty = False
+    souppoisoned = True
     clear()
     try:
         mixer.init()
