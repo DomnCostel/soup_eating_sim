@@ -298,6 +298,7 @@ def addsalt():
                             print("Your fork's pointy parts start glowing so you do the logical thing: stab yourself in the forehead with it.")
                             print("You don't bleed from the wound, but a strange liquid that doesn't seem to be affected by gravity pours out of it and becomes a sphere.")
                             print("The wound closes itself instantly after.")
+                            mixer.Channel(1).play(mixer.Sound('sound/pickup.wav'))
                             print("(You have obtained the Salty Sphere! Saltman would probably like to see it.)")
                             GotSaltSphere = True
                             save()
@@ -322,7 +323,10 @@ def eatsoupwithfork():
     forkysoup = True
 def addgarlic():
     global garlicsoup
+    mixer.Channel(1).play(mixer.Sound('sound/garlic.wav'))
     print("You added garlic to the soup. You feel a sense of dread.")
+    mixer.music.stop()
+    mixer.music.unload()
     garlicsoup = True
     sleep(3)
 def addbread():
@@ -343,6 +347,7 @@ def eatgarlic():
 def makegarlicbread():
     global garlicbread
     print("You repeatedly slammed the slice of bread with the clove of garlic. Magically, they turned into garlic bread.")
+    mixer.Channel(1).play(mixer.Sound('sound/pickup.wav'))
     garlicbread = True
 def eatgarlicbread():
     global garlicbread
@@ -468,6 +473,11 @@ def silverpoisoning():
     global GotSoupSphere
     global GotBread
     global GotGarlic
+    mixer.music.stop()
+    mixer.music.unload()
+    mixer.music.load("sound/A Silver End.wav")
+    mixer.music.play(-1)
+    mixer.Channel(1).play(mixer.Sound('sound/dying.wav'))
     print("You died of silver poisoning because you ate the fork, which got mixed in the soup.")
     print("You ascend into the Eternal Sea, and there you meet Crab God and become a crab and rave.")
     print("ENDING 5/?: Forky Death")
@@ -488,6 +498,9 @@ def necksnap():
     global GotSoupSphere
     global GotBread
     global GotGarlic
+    mixer.music.load("sound/No.wav")
+    mixer.music.play(-1)
+    mixer.Channel(1).play(mixer.Sound('sound/neck snapping.wav'))
     print("Suddenly, i (the lead programmer, Cirilaron) appear behind you and snap your neck because i disagree with what you just did.")
     print("You ascend into the Eternal Sea, and there you meet Crab God and become a crab and rave.")
     print("ENDING 6/?: NECK SNAP")
@@ -616,6 +629,7 @@ def loopofsoup():
                                     print("Your fork's pointy parts start glowing so you do the logical thing: stab yourself in the forehead with it.")
                                     print("You don't bleed from the wound, but a strange liquid that doesn't seem to be affected by gravity pours out of it and becomes a sphere.")
                                     print("The wound closes itself instantly after.")
+                                    mixer.Channel(1).play(mixer.Sound('sound/pickup.wav'))
                                     print("(You have obtained the Soupy Sphere! Soupman would probably like to see it.)")
                                     GotSoupSphere = True
                                     save()
@@ -757,6 +771,7 @@ def mainmenu():
                             else:
                                 print("Saltman: Hey, there it is! The sphere of salt! Here, have this piece of bread as a thanks.")
                                 sleep(3)
+                                mixer.Channel(1).play(mixer.Sound('sound/pickup.wav'))
                                 print("You have obtained the bread!")
                                 GotBread = True
                                 soupyanswers["add bread"] = addbread
@@ -771,6 +786,7 @@ def mainmenu():
                             else:
                                 print("Soupman: The sphere of soup! Can't believe i forgot it. Here, have this garlic clove as a thanks.")
                                 sleep(3)
+                                mixer.Channel(1).play(mixer.Sound('sound/pickup.wav'))
                                 print("You have obtained the garlic!")
                                 GotGarlic = True
                                 soupyanswers["add garlic"] = addgarlic
@@ -788,6 +804,7 @@ def mainmenu():
                         sleep(3)
                         print("Soupman: But with this fork.")
                         sleep(1)
+                        mixer.Channel(1).play(mixer.Sound('sound/pickup.wav'))
                         print("You have obtained the fork!")
                         GotFork = True
                         soupyanswers["eat soup with fork"] = eatsoupwithfork
