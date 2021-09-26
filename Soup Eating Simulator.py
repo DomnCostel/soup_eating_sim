@@ -157,8 +157,19 @@ ___   ‾|‾‾  __                         |  |                       __    �
       | |            \                (    )              /           |   |
                      ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 """
-fork="""
-FORK ART NOT YET IMPLEMENTED
+fork = """
+|   |    |
+|   |    |
+|   |    |
+|   |    |
+‾‾‾‾|‾‾‾‾‾
+    |
+    |
+    |
+    |
+    |
+    |
+    |
 """
 #vars and lists
 SpoonUpgrade = False
@@ -532,6 +543,7 @@ def loopofsoup():
     global souppoisoned
     global toomuchsalt
     global breakout
+    global fork
     clear()
     mixer.init()
     mixer.music.load('sound/normal days.wav')
@@ -548,6 +560,7 @@ def loopofsoup():
     print(spoon)
     if GotFork:
         print("The fork you got from Saltman and Soupman is also here.")
+        print(fork)
     if GotGarlic:
         print("You have some garlic in your left pocket, so you put it on the table.")
     if GotBread:
