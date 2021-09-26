@@ -280,12 +280,16 @@ def addsalt():
                     if GotSaltSphere:
                         breakout = True
                     else:
-                        print("Your fork's pointy parts start glowing so you do the logical thing: stab yourself in the forehead with it.")
-                        print("You don't bleed from the wound, but a strange liquid that doesn't seem to be affected by gravity pours out of it and becomes a sphere.")
-                        print("The wound closes itself instantly after.")
-                        print("(You have obtained the Salty Sphere! Saltman would probably like to see it.)")
-                        GotSaltSphere = True
-                        save()
+                        if forkysoup:
+                            print("dumbass your fork melted so we'll just give you ending 4 instead")
+                            breakout = True
+                        else:
+                            print("Your fork's pointy parts start glowing so you do the logical thing: stab yourself in the forehead with it.")
+                            print("You don't bleed from the wound, but a strange liquid that doesn't seem to be affected by gravity pours out of it and becomes a sphere.")
+                            print("The wound closes itself instantly after.")
+                            print("(You have obtained the Salty Sphere! Saltman would probably like to see it.)")
+                            GotSaltSphere = True
+                            save()
     except:
         print("i asked for a number dumbass")
 def lookundertable():
@@ -390,7 +394,7 @@ def saltylife():
     if GotEnd2 == False:
         GotEnd2 = True
         save()
-def toomuchsalt():
+def toosalty():
     global GotEnd1
     global GotEnd2
     global GotEnd3
@@ -592,12 +596,16 @@ def loopofsoup():
                             if GotSoupSphere:
                                 breakout = True
                             else:
-                                print("Your fork's pointy parts start glowing so you do the logical thing: stab yourself in the forehead with it.")
-                                print("You don't bleed from the wound, but a strange liquid that doesn't seem to be affected by gravity pours out of it and becomes a sphere.")
-                                print("The wound closes itself instantly after.")
-                                print("(You have obtained the Soupy Sphere! Soupman would probably like to see it.)")
-                                GotSoupSphere = True
-                                save()
+                                if forkysoup:
+                                    print("dumbass your fork melted so we'll just get you ending 4 instead")
+                                    breakout = True
+                                else:
+                                    print("Your fork's pointy parts start glowing so you do the logical thing: stab yourself in the forehead with it.")
+                                    print("You don't bleed from the wound, but a strange liquid that doesn't seem to be affected by gravity pours out of it and becomes a sphere.")
+                                    print("The wound closes itself instantly after.")
+                                    print("(You have obtained the Soupy Sphere! Soupman would probably like to see it.)")
+                                    GotSoupSphere = True
+                                    save()
 
             else:
                 print("not an option dumdum")
@@ -686,6 +694,7 @@ def mainmenu():
     global garlicsoup
     global logo
     global soupeaten
+    global breakout
     soupiness = 0
     saltiness = 0
     breakout = False
