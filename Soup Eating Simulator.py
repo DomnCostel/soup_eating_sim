@@ -6,7 +6,19 @@ try:
 except:
     print("You don't have pygame installed, musik and sounds will not play. To install it open a command line\nand type \'python -m pip install pygame\' on windows, and 'pip3 install pygame' on unix-like OSes")
     sleep(5)
-
+GotEnd1 = False
+GotEnd2 = False
+GotEnd3 = False
+GotEnd4 = False
+GotEnd5 = False
+GotEnd6 = False
+ReleasedSaltman = False
+ReleasedSoupman = False
+GotFork = False
+GotBread = False
+GotGarlic = False
+GotSaltSphere = False
+GotSoupSphere = False
 cwd = os.getcwd()
 datadir = os.path.join(cwd, "data")
 varspy = os.path.join(datadir, "vars.py")
