@@ -492,7 +492,7 @@ def silverpoisoning():
     mixer.Channel(1).play(mixer.Sound('sound/dying.wav'))
     print("You died of silver poisoning because you ate the fork, which got mixed in the soup.")
     print("You ascend into the Eternal Sea, and there you meet Crab God and become a crab and rave.")
-    print("ENDING 5/?: Forky Death")
+    print("ENDING 5/?: FORKY DEATH")
     if GotEnd5 == False:
         GotEnd5 = True
         save()
