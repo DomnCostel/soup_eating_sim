@@ -368,7 +368,7 @@ def eatgarlicbread():
         print("You meet Crab God.")
         print("\"Oh, it's you again. Someone wanted to talk to you.\", he says, as he transfers you to two crabs.")
         print("The crabs are the devs of this game. I, Cirilaron, the lead programmer, and Domncostel, the lead art designer and sound composer.")
-        print("We tell you about the planned updates: Bepis update and kitchen minigame")
+        print("We tell you about the planned update: Bepis update")
         print("After that you return back to the table. This is not an ending.")
         garlicbread = False
     else:
@@ -647,7 +647,7 @@ def loopofsoup():
                                     save()
 
             else:
-                print("not an option dumdum")
+                print("not an option dumbass")
         else:
             action = soupyanswers[answer]
             action()
